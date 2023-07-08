@@ -1,0 +1,13 @@
+# EmailEngine blueprint for Render.com
+# Use the following repository address when setting up a new blueprint application:
+#   https://github.com/postalsys/emailengine
+
+services:
+    # Web service
+    - type: worker 
+      name: broadcast 
+      env: python
+      numInstances: 1
+      #healthCheckPath: /health
+      buildCommand: pip install -U -r requirements.txt
+      startCommand: python autocast.py
