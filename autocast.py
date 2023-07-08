@@ -13,7 +13,7 @@ hello
 client = Client('auto-cast', api_id=API_ID, api_hash=API_HASH, session_string=SESSION)
 client.start()
 
- while True:
+while True:
    try:
       print("starting broadcast....")
       for dialog in client.get_dialogs():
