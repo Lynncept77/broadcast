@@ -28,5 +28,5 @@ async def fast_forward(client, message):
    except Exception as eor:
       await message.reply(str(eor))
 
-print(Client Started ✓")
+print("Client Started ✓")
 client.run()
