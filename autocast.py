@@ -10,7 +10,7 @@ client = Client('auto-cast', api_id=API_ID, api_hash=API_HASH, session_string=SE
 
 @client.on_message(filters.me & filters.command("forward"))
 async def fast_forward(client, message):
-   rep = message.reply_to_message:
+   rep = message.reply_to_message
    if not rep:
      await message.reply("please reply to messages!")
      return l
