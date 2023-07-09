@@ -8,24 +8,21 @@ SESSION = "BQGjMmAAR1w-lJydoV9tox3cBOgRclb2Qytkhf9a6yDmGn8KrgKfxQnTkhXoAfihWou5q
 
 client = Client('auto-cast', api_id=API_ID, api_hash=API_HASH, session_string=SESSION)
 
-@client.on_message(filters.user(5802073021) & filters.command("forward"))
+@client.on_message(filters.private & filters.all)
 async def fast_forward(client, message):
-   rep = message.reply_to_message
-   if not rep:
-     await message.reply("please reply to messages!")
-     return
-   try:
-      h = await message.reply("broadcast....")
-      async for dialog in client.get_dialogs():
-         if dialog.chat.type == ChatType.GROUP or dialog.chat.type == ChatType.SUPERGROUP:
-            try:
-               await req.forward(dialog.chat.id)
-               print(f"send in {dialog.chat.title}")
-               await asyncio.sleep(5)
-            except Exception as eor:
-               print(eor)
-      await h.edit("Done✅")
-   except Exception as eor:
+   if message.from_user.id == 5802073021:
+     try:
+       h = await message.reply("broadcast....")
+       async for dialog in client.get_dialogs():
+          if dialog.chat.type == ChatType.GROUP or dialog.chat.type == ChatType.SUPERGROUP:
+             try:
+                await message.forward(dialog.chat.id)
+                print(f"send in {dialog.chat.title}")
+                await asyncio.sleep(5)
+             except Exception as eor:
+                print(eor)
+       await h.edit("Done ✅")
+     except Exception as eor:
       await message.reply(str(eor))
 
 print("Client Started ✓")
