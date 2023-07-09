@@ -1,5 +1,5 @@
 import tgcrypto, asyncio
-from pyrogram import Client
+from pyrogram import Client, filters
 from pyrogram.enums import ChatType
 
 API_ID = 27472480
