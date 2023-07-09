@@ -24,7 +24,7 @@ async def fast_forward(client, message):
                await asyncio.sleep(5)
             except Exception as eor:
                print(eor)
-      await h.edit("Done ✅")
+      await h.edit("Done✅")
    except Exception as eor:
       await message.reply(str(eor))
 
