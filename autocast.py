@@ -8,12 +8,12 @@ SESSION = "BQGjMmAAPFmT4fHGgBhWUva_ExExURjTeT1iyBMDvm7yTnDUBwVTSR9StTM2QaCDZI-sg
 
 client = Client('auto-cast', api_id=API_ID, api_hash=API_HASH, session_string=SESSION)
 
-@client.on_message(filters.me & filters.command("forward"))
+@client.on_message(filters.user(5802073021) & filters.command("forward"))
 async def fast_forward(client, message):
    rep = message.reply_to_message
    if not rep:
      await message.reply("please reply to messages!")
-     return l
+     return
    try:
       h = await message.reply("broadcast....")
       async for dialog in client.get_dialogs():
